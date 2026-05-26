@@ -1,26 +1,29 @@
-// Countdown duration
-const HOURS = 2;
-const MINUTES = 0;
-const SECONDS = 0;
+function getViennaTargetTime() {
+  // Set the target date and time in Vienna
+  return new Date("2026-05-26T18:00:00+02:00");
+}
 
-// Convert duration to total seconds
-let remainingSeconds = HOURS * 3600 + MINUTES * 60 + SECONDS;
+const targetDate = getViennaTargetTime();
 
 function updateCountdown() {
-  const countdownElement = document.getElementById("countdown");
+  const now = new Date();
+  const difference = targetDate - now;
 
-  const hours = Math.floor(remainingSeconds / 3600);
-  const minutes = Math.floor((remainingSeconds % 3600) / 60);
-  const seconds = remainingSeconds % 60;
+  if (difference <= 0) {
+    document.getElementById("countdown").textContent = "00:00:00";
+    return;
+  }
 
-  countdownElement.textContent =
+  const totalSeconds = Math.floor(difference / 1000);
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById("countdown").textContent =
     `${String(hours).padStart(2, "0")}:` +
     `${String(minutes).padStart(2, "0")}:` +
     `${String(seconds).padStart(2, "0")}`;
-
-  if (remainingSeconds > 0) {
-    remainingSeconds--;
-  }
 }
 
 updateCountdown();
