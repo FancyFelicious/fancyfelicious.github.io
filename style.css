@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    /* Background color */
+    background-color: #111827;
+
+    /* Center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdown {
+    /* Font settings */
+    font-family: Arial, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+
+    color: white;
+    text-align: center;
+}
