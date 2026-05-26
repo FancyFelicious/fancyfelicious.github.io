@@ -1,9 +1,27 @@
-function getViennaTargetTime() {
-  // Set the target date and time in Vienna
-  return new Date("2026-05-26T18:00:00+02:00");
+function getNextVienna1800() {
+  const now = new Date();
+
+  // Get current date/time in Vienna
+  const viennaNow = new Date(
+    now.toLocaleString("en-US", { timeZone: "Europe/Vienna" }),
+  );
+
+  // Create target = today 18:00 Vienna
+  const target = new Date(viennaNow);
+  target.setHours(18, 0, 0, 0);
+
+  // If it's already past 18:00 Vienna, use tomorrow
+  if (viennaNow >= target) {
+    target.setDate(target.getDate() + 1);
+  }
+
+  // Convert back to a real timestamp
+  const offset = now.getTime() - viennaNow.getTime();
+
+  return new Date(target.getTime() + offset);
 }
 
-const targetDate = getViennaTargetTime();
+const targetDate = getNextVienna1800();
 
 function updateCountdown() {
   const now = new Date();
