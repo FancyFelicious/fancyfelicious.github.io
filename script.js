@@ -1,5 +1,12 @@
 // YYYY-MM-DDTHH:MM:SS
-const targetDate = new Date("2027-01-01T00:00:00");
+// Countdown duration
+const HOURS = 2;
+const MINUTES = 0;
+const SECONDS = 0;
+
+const targetDate = new Date(
+  Date.now() + (HOURS * 3600 + MINUTES * 60 + SECONDS) * 1000,
+);
 
 function updateCountdown() {
   const now = new Date();
