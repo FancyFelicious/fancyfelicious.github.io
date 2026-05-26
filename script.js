@@ -1,4 +1,7 @@
 function getNextVienna1800() {
+  const TARGET_HOUR = 16;
+  const TARGET_MINUTE = 0;
+
   const now = new Date();
 
   // Get current date/time in Vienna
@@ -8,7 +11,7 @@ function getNextVienna1800() {
 
   // Create target = today 18:00 Vienna
   const target = new Date(viennaNow);
-  target.setHours(16, 0, 0, 0);
+  target.setHours(TARGET_HOUR, TARGET_MINUTE, 0, 0);
 
   // If it's already past 18:00 Vienna, use tomorrow
   if (viennaNow >= target) {
