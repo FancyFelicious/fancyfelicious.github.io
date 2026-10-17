@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Pixel Picasso · Friends</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:linear-gradient(#fff0f7,#e6f0ff);color:#3a1458;font:18px/1.6 system-ui,sans-serif}
+  main{width:min(100%,480px);padding:32px;border-radius:24px;background:#fff;box-shadow:0 6px #d6c3ea;text-align:center}h1{font-size:2rem;line-height:1.2}code{display:block;font:bold 2rem/1.8 monospace;letter-spacing:.12em;color:#3a1458}a{color:#6741ae}a.store{display:inline-block;padding:12px 22px;background:#8558e0;color:white;border-radius:16px;text-decoration:none;font-weight:bold}p{margin:16px 0}small{color:#6b4a85}[hidden]{display:none}
+  @media(prefers-color-scheme:dark){body{background:linear-gradient(#22103f,#160a2b);color:#fff7fb}main{background:#38205f;box-shadow:0 6px #120824}code{color:#fff7fb}a,small{color:#cdb9e6}}
+</style>
+<main>
+  <h1>Pixel Picasso</h1>
+  <div id="friend" hidden>
+    <p>A friend is ready to play with you.</p>
+    <p>Your friend’s code:</p><code id="code"></code>
+    <p>In the game, open Multiplayer → Friends → Enter a code. You’ll be asked before the friend is added.</p>
+    <p><a class="store" href="https://play.google.com/store/apps/details?id=com.squishyfelishy.pixelpicasso">Get Pixel Picasso</a></p>
+    <small>Already installed? Open this link on your Android phone. During testing, use the debug build with Multiplayer.</small>
+  </div>
+  <p id="missing">This link is incomplete. Ask your friend to share their code again.</p>
+  <p><a href="https://fancyfelicious.github.io/pixel-legal/">Privacy and legal information</a></p>
+</main>
+<script>
+  const match = /^\/friend\/([23456789ABCDEFGHJKMNPQRSTUVWXYZ]{8})$/.exec(location.pathname);
+  if(match && !location.search && !location.hash){document.getElementById('code').textContent=match[1];document.getElementById('friend').hidden=false;document.getElementById('missing').hidden=true;}
+</script>
+</html>

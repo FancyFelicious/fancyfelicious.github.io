@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.squishyfelishy.pixelpicasso",
+      "sha256_cert_fingerprints": ["28:51:0F:1C:64:74:97:5D:D3:01:43:92:29:EA:8C:51:60:52:C2:F0:1C:24:D9:F8:F7:A7:3B:93:51:75:24:97"]
+    }
+  }
+]
